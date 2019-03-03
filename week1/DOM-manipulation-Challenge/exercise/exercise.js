@@ -32,7 +32,7 @@ paragraph contains that string, and false if it doesn't.
 */
 var containsString = function(testString){
   var p = document.querySelector('.introduction')
-  console.log(p.innerText.includes(testString))
+  console.log(p.innerText.indexOf(testString) > -1)
 }
 // containsString('Lorem'); //uncomment me to test
 
@@ -80,7 +80,9 @@ input with name in `inputNames` array.
 */
 var updateStateValues = function(formState, inputNames){
   var clone = Object.assign({}, formState)
-  var inputValues = inputNames.map(inputName => getValue(inputName))
+  var inputValues = inputNames.map(function(inputName) {
+    return getValue(inputName)
+  })
   clone.inputValues = inputValues
   console.log(clone)
 }
@@ -92,7 +94,9 @@ Write a function which returns an **array** of values of inputs with a given cla
 */
 var getInputValues = function(className){
   var inputs = document.querySelectorAll('input.' + className)
-  console.log(Array.from(inputs).map(i => i.value))
+  console.log(Array.from(inputs).map(function(i) {
+    return i.value
+  }))
 }
 // getInputValues('test'); //uncomment me to test
 
@@ -114,4 +118,4 @@ var generateUl = function(array){
   console.log(ul)
   return ul
 }
-generateUl(['one', 'two', 'three']); //uncomment me to test
+// generateUl(['one', 'two', 'three']); //uncomment me to test
