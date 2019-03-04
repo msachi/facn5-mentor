@@ -7,7 +7,11 @@
 
 DOM element property *innerText* returns the visible text contained in a node, while *textContent* returns the full text
 
-updateStateValue() and updateStateValues() solutions seem to be wrong (need inputName and inputNames properties, respectively), generateUl() solution is wrong also
+Copying objects in JS:
+- Object.assign() can be used for shallow copying (same for spread operator)
+- JSON.parse(JSON.stringify()) can be used for deep copying
+- the first can be used to copy methods whereas the second cannot
+- the first can be used to copy object with circular references, the second cannot
 
 ### Git workflow workshop
 
@@ -38,6 +42,8 @@ When you `commit` something you make it part of your git repository (and not jus
 Since Git 2.0: `git stage -A` and `git stage .` are almost equivalent (both of them stage new, modified and deleted files). However, only the first stages everything regardless of where you are folder structure (the latter ignores folders higher up in the structure from the current one).
 
 "You should never merge your own pull requests." - depends on the workflow. Sometimes collaborators will only comment/ approve, but you are responsible for merging your own pull request.
+
+To checkout to a local version of a (new) remote branch: `git fetch`, then `git checkout featureA`
 
 ### CSS gallery challenge
 
