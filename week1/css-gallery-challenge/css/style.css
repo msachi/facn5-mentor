@@ -9,7 +9,6 @@
   margin: 0 auto;
 }
 
-
 @media (min-width: 601px) {
   .gallery {
     font-size: 0;
@@ -54,7 +53,6 @@
   }
   
   .gallery .photo {
-    display: inline-block;
     width: 50%;
   }
 

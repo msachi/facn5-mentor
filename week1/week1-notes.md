@@ -45,6 +45,8 @@ Since Git 2.0: `git stage -A` and `git stage .` are almost equivalent (both of t
 
 To checkout to a local version of a (new) remote branch: `git fetch`, then `git checkout featureA`
 
+`git pull` = `git fetch` + `git merge`
+
 ### CSS gallery challenge
 
 By default there will be 4px space between inline-block positioned elements  
