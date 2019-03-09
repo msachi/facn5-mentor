@@ -19,3 +19,47 @@ NB: with fetch, a failed request (e.g. a request returning a 404) will not autom
 This is a good exercise to practice how to make code modular, reusable / DRY and to implement separation of concern (e.g. fetching data, processing / extracting data, updating DOM)
 
 It is important to batch up all DOM changes in one synchronous piece of Javascript. In this way the browser will queue the reflow and repaint until you've made all your DOM changes.
+
+### Event loop video
+
+Sections of video (pause after each):
+
+
+1) Call stack (sync examples)  
+-- JS only has one call stack; it can only do one thing at a time  
+-- call stack records where in the programme we are  
+-- when we step into a function we push something onto the stack; when we return from a function, we pop off the top of the stack  
+-- if you get an error in the console, it will print the stack trace  
+-- infinite loops wils blow the call stack  
+
+2) Blocking behaviour  
+-- code that is slow and on the stack  
+-- blocking sync operations are problematic in the browser; it gets stuck and can't do anything  
+-- blocking is prevented using async callbacks  
+
+3) Concurrency  
+-- we can do more than one thing at at time because the browser is more than just the runtime   
+-- web APIs, task queue and event loop are all implemented in the browser (not V8)  
+-- web API pushes callbacks that are done to the task queue  
+-- event loop takes the first thing on the task queue and pushes it onto the stack, provided that the stack is empty  
+
+4) Examples  
+-- defering execution with setTimeout  
+
+> setTimeout(cb, 0) defers execution until the stack is clear  
+
+-- AJAX requests  
+-- click handlers  
+-- running multiple setTimeouts in a row  
+
+> setTimeout is not a guaranteed time to execution, it's a minimum time to execution  
+-- setTimeout(cb, 1000) will run in 1000 ms or later  
+
+-- looping through an array in a sync and async way  
+-- simulating the rendering in the browser  
+
+> The browser needs to wait until the stack is clear before it can (re)render  
+-- although the render is given a higher priority than your callbacks  
+-- this is why you shouldn't block the call stack!  
+
+-- scroll events and the need to debounce  
