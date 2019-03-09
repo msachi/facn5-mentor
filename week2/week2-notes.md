@@ -24,7 +24,6 @@ It is important to batch up all DOM changes in one synchronous piece of Javascri
 
 Sections of video (pause after each):
 
-
 1) Call stack (sync examples)  
 -- JS only has one call stack; it can only do one thing at a time  
 -- call stack records where in the programme we are  
@@ -63,3 +62,19 @@ Sections of video (pause after each):
 -- this is why you shouldn't block the call stack!  
 
 -- scroll events and the need to debounce  
+
+### Software design workshop
+
+A first-class citizen in a programming language is an entity that supports all the operations available to other entities  
+-- functions are first-class objects in JS, i.e. they support all operations allowed to other objects  
+
+Local variables are created when the function is invoked, and deleted when the function is finished  
+-- a closure is a function having access to the parent scope, even after the parent function has closed
+
+There is actually a bug in the final exercise of Stage 1, which they'll need to fix before they can start to refactor
+
+Stage 2 exercise bugs:
+-- tests mistakenly point to the solution file  
+-- tests expect the 'query' property to be 'querystring'  
+-- the function is not set up as an IIFE (might be intentional)
+
