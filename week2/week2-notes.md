@@ -43,7 +43,7 @@ Sections of video (pause after each):
 -- event loop takes the first thing on the task queue and pushes it onto the stack, provided that the stack is empty  
 
 4) Examples  
--- defering execution with setTimeout  
+-- deferring execution with setTimeout  
 
 > setTimeout(cb, 0) defers execution until the stack is clear  
 
