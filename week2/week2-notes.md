@@ -71,6 +71,8 @@ A first-class citizen in a programming language is an entity that supports all t
 Local variables are created when the function is invoked, and deleted when the function is finished  
 -- a closure is a function having access to the parent scope, even after the parent function has closed
 
+A 'block' in JS is defined by a pair of curly braces
+
 There is actually a bug in the final exercise of Stage 1, which they'll need to fix before they can start to refactor
 
 Stage 2 exercise bugs:
@@ -78,3 +80,13 @@ Stage 2 exercise bugs:
 -- tests expect the 'query' property to be 'querystring'  
 -- the function is not set up as an IIFE (might be intentional)
 
+### Introduction to npm
+
+With npm 5 or newer: can use `npm install <package>`  
+-- with older npm: need to use `npm install <package> --save`
+
+version "3.8.2": major number 3, minor 8, patch 2  
+-- to fix the major version only, use caret (^)  
+-- to fix the major and minor numbers, use tilde (~)  
+-- if you just specify a version, it will fix all numbers  
+-- by default npm will install packages with a ^
