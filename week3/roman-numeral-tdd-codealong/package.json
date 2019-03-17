@@ -6,12 +6,14 @@
   "scripts": {
     "test": "tape *.test.js | tap-spec",
     "test:watch": "nodemon -q -x 'npm test'",
+    "test:coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "start": "browser-sync start --no-notify -sf 'index.html, style.css, app.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nyc": "^13.3.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"
   }
