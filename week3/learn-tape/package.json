@@ -1,0 +1,41 @@
+{
+  "name": "learn-tape",
+  "version": "2.0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dwyl/learn-tape.git"
+  },
+  "description": "Simple Test Driven Development (TDD) Tutorial using Tape",
+  "author": "dwyl & friends!",
+  "devDependencies": {
+    "browserify": "^16.2.2",
+    "istanbul": "^0.4.5",
+    "jsdom": "^12.2.0",
+    "pre-commit": "^1.2.2",
+    "tap": "^12.0.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1",
+    "testling": "^1.7.1"
+  },
+  "scripts": {
+    "test": "istanbul cover tape ./test/*.test.js",
+    "fast": "tape ./test/*.test.js",
+    "spec": "tape ./test/*.test.js | tap-spec",
+    "coverage": "istanbul cover tape ./test/*.test.js && istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
+    "front-end-test-complete": "tape ./front-end-testing/test-complete/* | tap-spec",
+    "front-end-coverage-complete": "istanbul cover tape ./front-end-testing/test-complete/* && istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
+    "front-end-test": "tape ./front-end-testing/test/* | tap-spec",
+    "front-end-coverage": "istanbul cover tape ./front-end-testing/test/*"
+  },
+  "pre-commit": [
+    "coverage",
+    "front-end-coverage-complete"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "tape",
+    "tap",
+    "tutorial",
+    "how to"
+  ]
+}
