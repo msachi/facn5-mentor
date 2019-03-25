@@ -58,7 +58,7 @@ var handler = (request, response) => {
 
   if(endpoint.includes('/public')) {
     var extension = endpoint.split('.')[1]
-    response.writeHead(200, {'Content-Type': 'text' + extension})
+    response.writeHead(200, {'Content-Type': 'text/' + extension})
     fs.readFile(__dirname + '/..' + endpoint, (error, file) => {
       if(error) {
         console.log(error)
