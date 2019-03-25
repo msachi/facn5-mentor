@@ -1,0 +1,17 @@
+{
+  "name": "morning-challenge2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "tape test/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.10",
+    "tape": "^4.6.3"
+  }
+}
