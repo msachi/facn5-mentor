@@ -16,3 +16,7 @@ In Supertest:
 -- `.send()` and `.set()` methods are used to attach things to the request (body and headers, respectively)  
 -- response is tested using `.expect()` (e.g. status code and headers) and within `t.end()`  
 -- `res.text` is a string and `res.body` is a parsed object
+
+### Node shell workshop
+
+Bonus task: make your `ls` script display folders in a different colour than files
