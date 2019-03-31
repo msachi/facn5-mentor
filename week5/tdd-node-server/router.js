@@ -1,17 +1,12 @@
 const router = (req, res) => {
-
-  if(req.url === '/') {
-    res.writeHead(200, {'Content-Type': 'text/html'})
+  if (req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/html' })
     res.end('Hello')
-  }
-  
-  else if(req.url === '/blog' && req.method === 'GET') {
-    res.writeHead(200, {'Content-Type': 'application/json'})
+  } else if (req.url === '/blog' && req.method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'application/json' })
     res.end(JSON.stringify(['one', 'two', 'three']))
-  }
-  
-  else if(req.url === '/blog' && req.method === 'POST') {
-    if(req.headers.password !== 'potato') {
+  } else if (req.url === '/blog' && req.method === 'POST') {
+    if (req.headers.password !== 'potato') {
       res.writeHead(403)
       res.end('Forbidden')
       return
@@ -21,17 +16,15 @@ const router = (req, res) => {
       data += chunk
     })
     req.on('end', () => {
-      if(!data) {
-        res.writeHead(302, {'Location': '/blog'})
+      if (!data) {
+        res.writeHead(302, { Location: '/blog' })
         res.end()
         return
       }
-      res.writeHead(200, {'Content-Type': 'application/json'})
+      res.writeHead(200, { 'Content-Type': 'application/json' })
       res.end(data)
     })
-  }
-  
-  else {
+  } else {
     res.writeHead(404)
     res.end('Unknown URI')
   }
