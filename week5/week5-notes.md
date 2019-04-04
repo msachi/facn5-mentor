@@ -52,3 +52,9 @@ In order to use Tape to actually test that the two modules (`request` and `myReq
 
 If you do want to use async/await in Tape, still need to use a different version of it (e.g. `tape-async`)
 
+### Projects
+
+With Supertest, can in theory test all routes / endpoints in this project  
+-- but: not a great idea to test the ones making requests, as tests shouldn't be dependent on external APIs  
+-- instead can use Nock to set up an interception of the request to the external API, and provide a mock response  
+-- now the back-end code for the problematic route can be tested: it will make a request to the external API, receive a mock response, and then proceed to respond further to the client (and we can check the content of that response)
