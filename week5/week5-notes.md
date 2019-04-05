@@ -54,6 +54,12 @@ If you do want to use async/await in Tape, still need to use a different version
 
 ### Projects
 
+`<script>` tag default behaviour: when encountered, HTML parsing will pause until the script file has been both downloaded and executed  
+-- with `async` attribute: HTML parsing will continue whilst the script file is being downloaded, but will pause for script execution  
+-- with `defer` attribute: HTML parsing will continue whilst the script file is being downloaded. The script will only be executed once the HTML parsing is complete
+
+NB using `async defer` together is only done for browser compatibility: if `async` is unavailable, `defer` will be used instead
+
 With Supertest, can in theory test all routes / endpoints in this project  
 -- but: not a great idea to test the ones making requests, as tests shouldn't be dependent on external APIs  
 -- instead can use Nock to set up an interception of the request to the external API, and provide a mock response  
