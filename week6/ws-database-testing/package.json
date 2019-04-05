@@ -1,0 +1,27 @@
+{
+  "name": "database-testing",
+  "version": "1.0.0",
+  "description": "A workshop to get familiar with testing database queries",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "start": "NODE_ENV=production node src/server.js",
+    "test": "NODE_ENV=test node tests/db_tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azayneeva/Database-Testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azayneeva/Database-Testing/issues"
+  },
+  "homepage": "https://github.com/azayneeva/Database-Testing#readme",
+  "dependencies": {
+    "env2": "^2.2.0",
+    "nodemon": "^1.18.7",
+    "pg": "^7.4.0",
+    "tape": "^4.8.0"
+  }
+}
