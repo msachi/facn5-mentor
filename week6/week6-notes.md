@@ -1,5 +1,30 @@
 ## Week 6 notes
 
+### Intro to databases
+
+People & pets
+- if one person can only own one pet (one-to-one), need ownerID in pet table
+- if one person can own many pets (one-to-many), need ownerID in pet table
+- if many persons can share one pet (many-to-one), need petID in owner table
+- if many persons can share many pets (many-to-many), need a separate table to describe the relationships (ownerID -- petID, one row per relationship)
+
+### PostgreSQL setup
+
+The set up instructions ask you to 'create a new postgres database for the currently logged in user', but really all you're doing is craeting a new database with the current username as the database name
+
+### SQL commands workshops
+
+Postgres operators: equal(`=`), not equal(`<>`), less than (`<`), greater than (`>`)
+
+Types of joins:
+-- (INNER) JOIN: Returns records that have matching values in both tables
+-- LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table
+-- RIGHT (OUTER) JOIN: Return all records from the right table, and the matched records from the left table
+-- FULL (OUTER) JOIN: Return all records when there is a match in either left or right table
+
+We mainly use (INNER) JOIN because we only want the records that are linked / matched  
+-- but for the test data we could use any type of join, since all the records are linked
+
 ### PG walkthrough
 
 Confusingly, the `env2` module expects a path to your env file that is **relative to the root**
@@ -13,3 +38,11 @@ Following the suggested refactor, the `runDbBuild` function inside `db_build.js`
 
 `t.error(err)` should be run in each error-first callback, to make sure that there is no error  
 -- do not wrap it with an `if` statement, otherwise it won't actually run
+
+### Morning challenge
+
+To connect to the Heroku database: `\c heroku-database-url`, then can use SQL commands like on a local database
+
+NB the alias keyword `AS` is optional - it will still work if you skip it
+
+`AVG(count)::INTEGER` seems to do the same as `CAST(AVG(count) AS INTEGER)`
