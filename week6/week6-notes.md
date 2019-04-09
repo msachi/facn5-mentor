@@ -43,6 +43,12 @@ Following the suggested refactor, the `runDbBuild` function inside `db_build.js`
 
 To connect to the Heroku database: `\c heroku-database-url`, then can use SQL commands like on a local database
 
-NB the alias keyword `AS` is optional - it will still work if you skip it
+The first challenge uses an example of a 'correlated subquery' (also known as 'synchronised subquery')  
+-- this is a query that uses the values from the outer query  
+-- it is executed once for each row processed by the outer query  
+-- aliases must be used to distinguish table names from the inner and outer queries
 
-`AVG(count)::INTEGER` seems to do the same as `CAST(AVG(count) AS INTEGER)`
+Some shorthands:  
+-- `SELECT * FROM posts JOIN likes` can be shortened to `SELECT * FROM posts, likes`  
+-- `books as B` can be shortened to `books B`  
+-- `CAST(AVG(count) AS INTEGER)` can be shortened to `AVG(count)::INTEGER`

@@ -14,7 +14,7 @@ ORDER BY COUNT(id) DESC;
 
 -- 2.2
 
-SELECT location, likes.post_id FROM mentors
+SELECT location, post_id FROM mentors
 INNER JOIN likes ON mentors.name = likes.mentor_name;
 
 -- 3

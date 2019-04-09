@@ -1,9 +1,9 @@
 -- 1.
   SELECT book_id, book_name, max_reservation_time
-  FROM books B
+  FROM books A
   WHERE max_reservation_time >
-  (SELECT AVG(max_reservation_time) FROM books
-  WHERE library = B.library);
+  (SELECT AVG(max_reservation_time) FROM books B
+  WHERE A.library = B.library);
 
 -- 2.
 -- 2.1.
