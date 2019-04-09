@@ -52,3 +52,11 @@ Some shorthands:
 -- `SELECT * FROM posts JOIN likes` can be shortened to `SELECT * FROM posts, likes`  
 -- `books as B` can be shortened to `books B`  
 -- `CAST(AVG(count) AS INTEGER)` can be shortened to `AVG(count)::INTEGER`
+
+### Projects
+
+To link tables together (e.g. `users` and `posts`), can add the following to the `posts` table: `user_id INTEGER REFERENCES users(id)`
+
+To escape single quotes in Postgres, need to double them up
+
+NB `package-lock.json` file should be committed and pushed to master
