@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8">
+  <title>01 DOM Begone | FAC React</title>
+  <body>
+    <!-- These scripts will make React and ReactDOM globally available. -->
+    <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
+    <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
+    <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const root = document.getElementById('root');
+      // const title = React.createElement(
+      //   'h1',
+      //   { className: 'main-title' },
+      //   React.createElement('span', {}, 'Hello world!')
+      // );
+      const title = <h1 className='main-title'><span>Hello world!</span></h1>
+      console.log(title)
+      ReactDOM.render(title, root);
+    </script>
+  </body>
+</html>

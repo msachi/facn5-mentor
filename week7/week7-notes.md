@@ -24,6 +24,11 @@ Encoding: can easily be reversed using a public algorithm
 Encryption: can only be reversed with a secret key  
 Hashing: cannot be reversed
 
+### Promises morning challenge
+
+You do not have to return promises from fulfilment handlers provided to `then()` calls, can also just return a value
+-- values will be automatically wrapped in a promise (which will resolve on the next turn of the event loop)
+
 ### Client-side validation challenge
 
 Two ways of accessing data:  

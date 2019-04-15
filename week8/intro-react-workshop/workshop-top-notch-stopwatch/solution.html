@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Top-notch stopwatch | FAC React</title>
+
+<body>
+  <!-- These scripts will make React and ReactDOM globally available. -->
+  <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
+  <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
+  <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
+  <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+      const root = document.getElementById('root');
+
+      class Stopwatch extends React.Component {
+        state = {
+          running: false,
+          time: 0
+        }
+        toggle = () => {
+          this.setState(prevState => {
+            if (prevState.running) {
+              clearInterval(this.timer);
+            } else {
+              const startTime = Date.now() - prevState.time;
+              this.timer = setInterval(() => {
+                console.log(Date.now() - prevState.time)
+                this.setState({ time: Date.now() - startTime });
+              }, 0);
+            }
+            return { running: !prevState.running };
+            }
+          )
+        }
+        clear = () => {
+          clearInterval(this.timer);
+          this.setState({ running: false, time: 0 });
+        }
+        render() {
+          return (
+            <div>
+              <div>{this.state.time}</div>
+              <button onClick={this.toggle}>
+                {this.state.running ? 'Pause' : 'Start'}
+              </button>
+              <button onClick={this.clear}>Clear</button>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Stopwatch />, root);
+    </script>
+</body>
+
+</html>
