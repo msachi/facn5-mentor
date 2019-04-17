@@ -38,3 +38,15 @@ Two ways of accessing data:
 In the first case, need to use custom validation
 
 In the second case, can use html5 validation and then check the `validity` property of each input element
+
+### Projects
+
+It is standard practice to send 'plaintext' passwords over HTTPS  
+-- client-server communication is encrypted anyway  
+-- additionally encrypting the password doesn't accomplish much because if an attacker retrieves it they could use it as if it were an actual password (the server wouldn't know the difference)  
+-- shouldn't do this if using HTML though
+
+Status code 401 can be used when the request is not authorized
+
+302 redirects should only be used on the server for browser navigation requests  
+-- if you use them for JS fetch requests, the client will expect a JSON response and will get an HTML of the redirect page instead
