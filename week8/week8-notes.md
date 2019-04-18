@@ -17,3 +17,12 @@ React testing library queries:
 -- this means that you can use `getBy` without assertions (throwing will automatically fail the test), but that's not the case for `queryBy`
 
 `queryByText` expects the exact text, or you can use a regex
+
+`findBy` returns a promise which resolves when a matching element is found  
+-- to make this work in Jest, need to `return` (Jest will spot tht you are returning a promise and wait for it to resolve)
+
+`Promise.resolve()` returns a promise that is resolved with a given value  
+-- it's equivalent to `new Promise((resolve, reject) => resolve('value'))`
+
+When using `fetch`, can parse data with `response.json()` or `response.text()`  
+-- both return a promise so need to be treated as async
