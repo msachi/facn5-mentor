@@ -1,9 +1,20 @@
 ## Week 8 notes
 
+### Intro to ES6 classes
+
+To export an imported module in a single line:
+`export { default as Module } from './Module'`
+
+The ESNext way: `export Module from './Module'`
+
 ### React API workshop
 
 NB inside `setState()`, should not rely on the values of `this.props` and `this.state` because they may get updated asynchronously  
 -- instead use the second form of `setState` that takes a function with the `state` and `props` arguments
+
+### `this` workshop
+
+Bug in the test file: `Simulate` should be `fireEvent`
 
 ### React testing workshop
 
